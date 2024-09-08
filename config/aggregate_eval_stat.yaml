@@ -1,0 +1,6 @@
+model_path: forget/phi
+retain_result: ${model_path}/eval_log_aggregated.json
+ckpt_result: ${model_path}/eval_log_aggregated.json
+method_name: temp
+submitted_by: john
+save_file: ${model_path}/aggr_result.csv
