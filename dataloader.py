@@ -181,8 +181,8 @@ class CustomTrainerForgetting(Trainer):
             emb_tar = self.rmu_noise * self.hyper_param
             emb_idx = int(self.loss_type.split('_')[-1]) # 32 21 10
             outputs = model(input_ids,labels=labels, attention_mask=attention_mask, output_hidden_states=True)
-            emb_dif = ((outputs.hidden_states[emb_idx][..., :-1, :] - emb_tar) ** 2).mean(-1) 
-            # emb_dif = ((outputs.hidden_states[emb_idx][..., :-1, :] - emb_tar).abs()).mean(-1) 
+            # emb_dif = ((outputs.hidden_states[emb_idx][..., :-1, :] - emb_tar) ** 2).mean(-1) 
+            emb_dif = ((outputs.hidden_states[emb_idx][..., :-1, :] - emb_tar).abs()).mean(-1) 
             forget_loss = emb_dif[labels[..., 1:] != -100].mean()
             loss = forget_loss
             
