@@ -433,8 +433,8 @@ class CustomTrainerForgetting(Trainer):
             
             # objective gradient
             outputs = model(input_ids,labels=labels, attention_mask=attention_mask, output_hidden_states=True)
-            # emb_dif = ((outputs.hidden_states[emb_idx][..., :-1, :] - emb_tar) ** 2).mean()
-            emb_dif = ((outputs.hidden_states[emb_idx][..., :-1, :] - emb_tar).abs()).mean(-1)
+            emb_dif = ((outputs.hidden_states[emb_idx][..., :-1, :] - emb_tar) ** 2).mean()
+            # emb_dif = ((outputs.hidden_states[emb_idx][..., :-1, :] - emb_tar).abs()).mean(-1)
             forget_loss = emb_dif[labels[..., 1:] != -100].mean() + 0 * outputs.loss
             objective_gradient_fcn(model, forget_loss)
             
