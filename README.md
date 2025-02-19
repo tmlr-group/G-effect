@@ -1,4 +1,7 @@
-# rethinking_unlearning
+# Rethinking LLM Unlearning Objectives: A Gradient Perspective and Go Beyond
+
+TBD
+
 
 Before running the codes, we need to have some pretrained models, which can be achieved folloing the guidelines of the original TOFU repo. We also need to change the model_path and save_dir (icml/ by default) for the yaml files in config/ (e.g., config/forget.yaml and config/forget_ge.yaml)
 
