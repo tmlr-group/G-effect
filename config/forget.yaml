@@ -12,10 +12,10 @@ batch_size: 4 #4
 gradient_accumulation_steps: 4
 num_epochs: 5 #5
 forget_loss: grad_ascent
-hyper_param: 0
+hyper_param: None
 
-model_path: ../tofu/data/weight/ft_epoch5_lr${lr}_${model_family}_full_wd${w_decay}/checkpoint-625
-save_dir: icml/${model_family}/${forget_loss}_${lr}_${split}_${num_epochs}_${w_decay}_${hyper_param}
+model_path: /data/weight/ft_epoch5_lr1e-05_llama2-7b_full_wd0.0/checkpoint-625
+save_dir: iclr/${model_family}/${forget_loss}_${lr}_${split}_${num_epochs}_${w_decay}_${hyper_param}
 save_steps: 25
 overwrite_dir: True
 weight_decay: 0.0
@@ -56,3 +56,5 @@ eval:
 
   batch_size: 30
   retain_result: null
+
+strategy: false
